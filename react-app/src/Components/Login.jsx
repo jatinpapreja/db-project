@@ -16,9 +16,9 @@ export default function (props) {
             <h3 className="Auth-form-title">Sign In</h3>
             <div className="text-center">
               Not registered yet?{" "}
-              <span className="link-primary" onClick={changeAuthMode}>
+              <a className="text-primary" onClick={changeAuthMode}>
                 Sign Up
-              </span>
+              </a>
             </div>
             <div className="form-group mt-3">
               <label>Email address</label>
@@ -57,9 +57,9 @@ export default function (props) {
           <h3 className="Auth-form-title">Sign Up</h3>
           <div className="text-center">
             Already registered?{" "}
-            <span className="link-primary" onClick={changeAuthMode}>
+            <a className="text-primary" onClick={changeAuthMode}>
               Sign In
-            </span>
+            </a>
           </div>
           <div className="form-group mt-3">
             <label>Full Name</label>
