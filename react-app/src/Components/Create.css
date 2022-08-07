@@ -1,0 +1,95 @@
+.Create {
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;  
+  
+    }
+
+    .ba{
+      background-color: rgb(212, 211, 211);
+      padding: 0px 60px;
+      border-radius: 10px;
+      height: 70vh;
+      max-width: fit-content;
+      margin-left: 7cm;       
+    
+    }
+    h2{
+      text-align: center;
+      color: black;
+      padding-top: 0.5cm;
+    }
+    
+    /* .parent {
+        border: 1px solid black;
+        margin: 1rem;
+        padding: 2rem 2rem;
+        text-align: center;
+      }
+      .child {
+        display: inline-block;
+        border: 1px solid rgb(44, 34, 34);
+        padding: 1rem 1rem;
+        vertical-align: middle;
+      } */
+
+    .labe{
+    /* display: block;
+    font-size: medium;
+    color: rgb(24, 6, 6);
+    padding: 5px; */
+    font-size: medium;
+    display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: right;
+  width: 300px;
+  line-height: 26px;
+  margin-bottom: 10px;
+    }
+    
+    .inpu{
+    /* font-size: medium;
+    padding: 5px;
+    margin: 2px; */
+    margin: 6px;
+    height: 28px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    
+    }
+    .butn{
+    color: white;
+    background-color: rgb(94, 213, 243);
+    border-radius: 5px;
+    font-size: large;
+    display: block;
+    padding: 5px;
+    margin: 10px auto;
+    }
+    
+    .messages{
+    display: flex;
+    justify-content: center;
+    }
+    
+    .error{
+    display: block;
+    background-color: rgb(28, 236, 202);
+    color: white;
+    width: fit-content;
+    height: 50px;
+    padding: 5px;
+    }
+    
+    .success{
+    display: block;
+    background-color: lightblue;
+    color: black;
+    width: fit-content;
+    height: 50px;
+    padding: 5px;
+    }
+    
