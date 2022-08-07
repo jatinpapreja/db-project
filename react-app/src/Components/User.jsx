@@ -5,7 +5,7 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import { Button } from 'react-bootstrap';
 
-var filterParams = {
+let filterParams = {
   suppressAndOrCondition: true,
   comparator: (filterLocalDateAtMidnight, cellValue) => {
     var dateAsString = cellValue;
@@ -33,6 +33,10 @@ var filterParams = {
 function User(props) {
 
   const deleteSecurity = (params)=>{
+    console.log(params.data);
+  }
+
+  const Wishlist = (params)=>{
     console.log(params);
   }
 
@@ -151,7 +155,10 @@ function User(props) {
 
   const securities_heading = [
     {field:'Id'},
-    {field:'ISIN'},
+    {headerName:'Add To WishList',field:'Add To WishList',filter:false,cellRendererFramework:(params)=>
+                                    <input type="checkbox" onClick={()=>Wishlist(params)}></input>},
+    {field:'ISIN',cellRendererFramework:(params)=>
+                                        <a href={"/trade/"+params.data.ISIN}>{params.data.ISIN}</a>},
     {field:'CUSIP'},
     {field:'Issuer'},
     {field:'MaturityDate',filter: 'agDateColumnFilter',filterParams: filterParams},
@@ -161,7 +168,8 @@ function User(props) {
     {field:'Status'},
     {field:'',filter:false,cellRendererFramework:(params)=>
                                    <button className='btn btn-danger'
-                                   onClick={()=>deleteSecurity(params)}>Delete</button>}
+                                   onClick={()=>deleteSecurity(params)}>Delete</button>},
+    
   ];
 
 
@@ -170,7 +178,8 @@ function User(props) {
       flex: 1,
       minWidth: 150,
       filter: true,
-      filterParams:{suppressAndOrCondition: true}
+      filterParams:{suppressAndOrCondition: true},
+      resizable: true,
     };
   }, []);
 
