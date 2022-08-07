@@ -13,15 +13,17 @@ function NavbarCreation(props) {
           <Nav className="me-auto">
             <Nav.Link href="/wishlist">WishList</Nav.Link>
             <Nav.Link href="/create">Create</Nav.Link>
-            <Nav.Link href="/delete">Delete</Nav.Link>
+            {/* <Nav.Link href="/delete">Delete</Nav.Link> */}
             <Nav.Link href="/update">Update</Nav.Link>
+            <Nav.Link href="/">LogOut</Nav.Link>
 
-            <NavDropdown title="Securities" id="basic-nav-dropdown">
+
+            {/* <NavDropdown title="Securities" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">All</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Search By ID</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Search By Name</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Search By Date Range</NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
           </Nav>
         </Navbar.Collapse>
       </Container>
