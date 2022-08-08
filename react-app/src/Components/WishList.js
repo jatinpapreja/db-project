@@ -174,9 +174,7 @@ function WishList(props) {
   const defaultColDef = useMemo(() => {
     return {
       flex: 1,
-
-      minWidth: 150,
-
+      maxWidth: 150,
       filter: true,
       filterParams:{suppressAndOrCondition: true},
       resizable: true,
