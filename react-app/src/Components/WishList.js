@@ -4,7 +4,7 @@ import { AgGridReact } from "ag-grid-react";
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import { Button } from 'react-bootstrap';
-import { DropDown } from './DropDown';
+
 
 let filterParams = {
   suppressAndOrCondition: true,
@@ -153,7 +153,7 @@ function WishList(props) {
 
   const securities_heading = [
     {field:'Id'},
-    {field: 'Tag', cellRendererFramework: DropDown},
+
     {field:'ISIN',cellRendererFramework:(params)=>
                                         <a href={"/trade/"+params.data.ISIN}>{params.data.ISIN}</a>},
     {field:'CUSIP'},
@@ -173,8 +173,9 @@ function WishList(props) {
   const defaultColDef = useMemo(() => {
     return {
       flex: 1,
-      
-      maxWidth:150,
+
+      minWidth: 150,
+
       filter: true,
       filterParams:{suppressAndOrCondition: true},
       resizable: true,
