@@ -32,13 +32,23 @@ let filterParams = {
 
 function User(props) {
 
+  const userWishlist = [];
+
   const deleteSecurity = (params)=>{
     console.log(params.data);
   }
 
   const Wishlist = (params)=>{
-    console.log(params);
+    // console.log(params);
+    userWishlist.push(params.data);
   }
+
+  function addToWishlist(){
+      // call post method to add "userWishlist"
+      console.log('Added to Users Wishlist');
+      
+  }
+
 
   const securities = [
     {
@@ -196,6 +206,7 @@ function User(props) {
   return (
     <div>
       <NavbarSecurity name="User Name" />
+      <Button style={{marginLeft:10}} onClick={addToWishlist}>Add to WishList</Button>
       <div className="ag-theme-alpine" style={{height:600}}>
         <AgGridReact rowData={securities} columnDefs={securities_heading} 
         defaultColDef={defaultColDef} 
