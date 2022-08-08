@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import NavbarCreation from "./Navbar";
+import {NavbarSecurity} from "./Navbar";
 import { AgGridReact } from "ag-grid-react";
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
@@ -191,7 +191,7 @@ function User(props) {
 
   return (
     <div>
-      <NavbarCreation name="User Name" />
+      <NavbarSecurity name="User Name" />
       <div className="ag-theme-alpine" style={{height:1000}}>
         <AgGridReact rowData={securities} columnDefs={securities_heading} 
         defaultColDef={defaultColDef} />

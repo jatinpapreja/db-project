@@ -6,9 +6,12 @@ import User from './Components/User'
 import Create from "./Components/Create"
 import Update from "./Components/Update"
 import Trade from "./Components/Trade"
+import Tradecreate from "./Components/Tradecreate"
+import Tradeupdate from "./Components/Tradeupdate"
 
 function App() {
   const params = useParams();
+  const bond_id = params.id;
   return (
     <BrowserRouter>
       <Routes>
@@ -16,9 +19,9 @@ function App() {
         <Route path="/user" element={<User />} />
         <Route path="/create" element={<Create />} />
         <Route path="/update" element={<Update />} />
-        <Route path="/trade/:id" element={<Trade id={params.id} />} />
-        <Route path="/tradecreate" element={<Tradecreate />} />
-        <Route path="/tradeupdate" element={<Tradeupdate />} />
+        <Route path="/trade/:id" element={<Trade id={bond_id} />} />
+        <Route path="/tradecreate" element={<Tradecreate id={bond_id}/>} />
+        <Route path="/tradeupdate" element={<Tradeupdate id={bond_id}/>} />
       </Routes>
     </BrowserRouter>
   )

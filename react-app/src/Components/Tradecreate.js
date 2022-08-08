@@ -92,7 +92,7 @@ class Tradecreate extends React.Component {
             <Button variant="success" className="bt1 m-3 p-2" id="butn" 
             onClick={this.handleCancel}
             >Cancel</Button>{' '}
-            {this.state.change && <Navigate to="/trade/:id" replace={true} />}
+            {this.state.change && <Navigate to={"/trade/"+this.props.id} replace={true} />}
             </div>
       </div>
     </section>
