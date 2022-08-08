@@ -1,22 +1,34 @@
 import React from 'react'
+import { Navigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export const DropDown = (props) => {
+  const navigate = useNavigate();
     function handleClick(event){
-        console.log(event.params.value);
+        // console.log((event.target.value));
+
+        if(event.target.value === "Any Other")
+          {navigate("/Issueupdate");}
     }
+
+    const options = ["Failed Trades","Mis-Bookings", "Timing Issues"];
+
   return (
     <div>
-        <select name="tag" id="tag">
+        <select defaultValue="Select" name="tag" id="tag"  onChange={(params)=>handleClick(params)}>
 
-
-        <option value="failedTrades" onClick={handleClick}>Select</option>
-        <option value="failedTrades" onClick={handleClick}>Failed Trades</option>
-        <option value="misBookings"  onClick={handleClick}>Mis-Bookings</option>
-        <option value="timingIssues" onClick={handleClick}>Timing Issues</option>
-        <option value="anyOther" href="/user"> Any Other</option>
-
+        <option value="Select" disabled>Select</option>
+        {
+          options.map(op=>{
+            return (
+              <option value={op}>{op}</option>
+            )
+          })
+        }
+        <option value="Any Other"> Any Other</option>
 
         </select>
     </div>
+
   )
 }

@@ -4,7 +4,7 @@ import { AgGridReact } from "ag-grid-react";
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import { Button } from 'react-bootstrap';
-import { DropDown } from './DropDown';
+import {DropDown}  from './DropDown';
 
  
 let filterParams = {
@@ -34,14 +34,17 @@ let filterParams = {
 
 function WishList(props) {
 
-  const deleteSecurity = (params)=>{
+  const assignTag = (params)=>{
     console.log(params.data);
+    // const val = document.getElementById("tag").value;
+    // console.log(val);
   }
 
 
   const securities = [
     {
       Id: 1,
+      Tag: null,
       ISIN: "abcdefghij12",
       CUSIP: "12345abcd",
       Issuer: "Unknown",
@@ -53,6 +56,7 @@ function WishList(props) {
     },
     {
       Id: 2,
+      Tag: null,
       ISIN: "abcghfghij12",
       CUSIP: "123a5abcd",
       Issuer: "Unknown",
@@ -64,6 +68,7 @@ function WishList(props) {
     },
     {
       Id: 3,
+      Tag: null,
       ISIN: "ajkdefghij12",
       CUSIP: "1vh45abcd",
       Issuer: "Unknown",
@@ -75,6 +80,7 @@ function WishList(props) {
     },
     {
       Id: 4,
+      Tag: null,
       ISIN: "abcdqrghij12",
       CUSIP: "12345ayud",
       Issuer: "Unknown",
@@ -86,6 +92,7 @@ function WishList(props) {
     },
     {
       Id: 5,
+      Tag: null,
       ISIN: "abmlefghij12",
       CUSIP: "12345anld",
       Issuer: "Unknown",
@@ -97,6 +104,7 @@ function WishList(props) {
     },
     {
       Id: 6,
+      Tag: null,
       ISIN: "abcd67fghij12",
       CUSIP: "10l45abcd",
       Issuer: "Unknown",
@@ -108,6 +116,7 @@ function WishList(props) {
     },
     {
       Id: 7,
+      Tag: null,
       ISIN: "abcdefgh6712",
       CUSIP: "12365abcd",
       Issuer: "Unknown",
@@ -119,6 +128,7 @@ function WishList(props) {
     },
     {
       Id: 8,
+      Tag: null,
       ISIN: "abcdev8hij12",
       CUSIP: "12345a5cd",
       Issuer: "Unknown",
@@ -130,6 +140,7 @@ function WishList(props) {
     },
     {
       Id: 9,
+      Tag: null,
       ISIN: "abcdefibij12",
       CUSIP: "12345c8cd",
       Issuer: "Unknown",
@@ -141,6 +152,7 @@ function WishList(props) {
     },
     {
       Id: 10,
+      Tag: null,
       ISIN: "abcdefg77j12",
       CUSIP: "1234plbcd",
       Issuer: "Unknown",
@@ -165,8 +177,8 @@ function WishList(props) {
     {field:'FaceValue'},
     {field:'Status'},
     {field:'',filter:false,cellRendererFramework:(params)=>
-                                   <button className='btn btn-danger'
-                                   onClick={()=>deleteSecurity(params)}>Delete</button>},
+                                   <button className='btn btn-success'
+                                   onClick={()=>assignTag(params)}>Assign</button>},
     
   ];
 
