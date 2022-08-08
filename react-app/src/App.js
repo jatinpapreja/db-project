@@ -17,6 +17,8 @@ function App() {
         <Route path="/create" element={<Create />} />
         <Route path="/update" element={<Update />} />
         <Route path="/trade/:id" element={<Trade id={params.id} />} />
+        <Route path="/tradecreate" element={<Tradecreate />} />
+        <Route path="/tradeupdate" element={<Tradeupdate />} />
       </Routes>
     </BrowserRouter>
   )
