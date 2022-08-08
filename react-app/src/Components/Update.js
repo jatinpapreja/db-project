@@ -26,26 +26,9 @@ class Update extends React.Component {
   handleSubmit = (event) => {
     this.setState({ change: true })
     alert('Details submitted');
-    fetch("http://localhost:9000/land", {
-
-      // Adding method type
-      method: "POST",
-
-      // Adding body or contents to send
-      body: JSON.stringify(this.state),
-
-      // Adding headers to the request
-      headers: {
-        "Content-type": "application/json; charset=UTF-8"
-      }
-    })
-
-      // Converting to JSON
-      .then(response => response.json())
-
-      // Displaying results to console
-      .then(json => console.log(json));
-    event.preventDefault();
+  }
+  handleCancel = (event) => {
+    this.setState({ change: true })
   }
 
   render() {
@@ -95,6 +78,10 @@ class Update extends React.Component {
                 <input className="inpu" type="text" value={this.state.value} name="status" onChange={this.handleChange} />
             </label>
             <Button variant="success" className="bt1 m-3 p-2" id="butn" onClick={this.handleSubmit}>Submit</Button>{' '}
+        {this.state.change && <Navigate to="/user" replace={true} />}
+        <Button variant="success" className="bt1 m-3 p-2" id="butn" 
+        onClick={this.handleCancel}
+        >Cancel</Button>{' '}
         {this.state.change && <Navigate to="/user" replace={true} />}
         </div>
   </div>
