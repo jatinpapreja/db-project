@@ -61,7 +61,8 @@ function User(props) {
       Coupon: "5%",
       Type: "AAA",
       FaceValue: "1000$",
-      Status: "Paid",
+      Status: "Failed",
+      Action: "In Progress"
     },
     {
       Id: 3,
@@ -72,7 +73,7 @@ function User(props) {
       Coupon: "5%",
       Type: "AAA",
       FaceValue: "1000$",
-      Status: "Paid",
+      Status: "Failed",
     },
     {
       Id: 4,
@@ -94,7 +95,8 @@ function User(props) {
       Coupon: "5%",
       Type: "AAA",
       FaceValue: "1000$",
-      Status: "Paid",
+      Status: "Failed",
+      Action: "In Progress"
     },
     {
       Id: 6,
@@ -116,7 +118,7 @@ function User(props) {
       Coupon: "5%",
       Type: "AAA",
       FaceValue: "1000$",
-      Status: "Paid",
+      Status: "Failed",
     },
     {
       Id: 8,
@@ -149,7 +151,8 @@ function User(props) {
       Coupon: "5%",
       Type: "AAA",
       FaceValue: "1000$",
-      Status: "Paid",
+      Status: "Failed",
+      Action: "In Progress"
     }
   ];
 
@@ -157,7 +160,7 @@ function User(props) {
     {field:'Id'},
     {headerName:'Add To WishList',field:'Add To WishList',filter:false,cellRendererFramework:(params)=>
                                     <input type="checkbox" onClick={()=>Wishlist(params)}></input>},
-    {field:'ISIN',cellRendererFramework:(params)=>
+    {field:'ISIN',minWidth:120,cellRendererFramework:(params)=>
                                         <a href={"/trade/"+params.data.ISIN}>{params.data.ISIN}</a>},
     {field:'CUSIP'},
     {field:'Issuer'},
@@ -166,6 +169,7 @@ function User(props) {
     {field:'Type'},
     {field:'FaceValue'},
     {field:'Status'},
+    {field:'Action'},
     {field:'',filter:false,cellRendererFramework:(params)=>
                                    <button className='btn btn-danger'
                                    onClick={()=>deleteSecurity(params)}>Delete</button>},
@@ -176,7 +180,7 @@ function User(props) {
   const defaultColDef = useMemo(() => {
     return {
       flex: 1,
-      minWidth: 150,
+      minWidth: 100,
       filter: true,
       filterParams:{suppressAndOrCondition: true},
       resizable: true,

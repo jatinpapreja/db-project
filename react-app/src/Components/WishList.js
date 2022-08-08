@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import {NavbarSecurity} from "./Navbar";
+import {NavbarWishlist} from "./Navbar";
 import { AgGridReact } from "ag-grid-react";
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
@@ -154,7 +154,7 @@ function WishList(props) {
 
   const securities_heading = [
     {field:'Id'},
-    {field:'Tag', cellRendererFramework:DropDown},
+    {field:'Tag', minWidth:130, cellRendererFramework:DropDown},
     {field:'ISIN',cellRendererFramework:(params)=>
                                         <a href={"/trade/"+params.data.ISIN}>{params.data.ISIN}</a>},
     {field:'CUSIP'},
@@ -174,7 +174,7 @@ function WishList(props) {
   const defaultColDef = useMemo(() => {
     return {
       flex: 1,
-      maxWidth: 150,
+      minWidth: 100,
       filter: true,
       filterParams:{suppressAndOrCondition: true},
       resizable: true,
@@ -189,7 +189,7 @@ function WishList(props) {
 
   return (
     <div>
-      <NavbarSecurity name="User Name" />
+      <NavbarWishlist name="User Name" />
       <div className="ag-theme-alpine" style={{height:1000}}>
         <AgGridReact rowData={securities} columnDefs={securities_heading} 
         defaultColDef={defaultColDef} />
