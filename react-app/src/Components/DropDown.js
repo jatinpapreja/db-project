@@ -7,11 +7,13 @@ export const DropDown = (props) => {
   return (
     <div>
         <select name="tag" id="tag">
+
         <option value="failedTrades" onClick={handleClick}>Select</option>
         <option value="failedTrades" onClick={handleClick}>Failed Trades</option>
         <option value="misBookings"  onClick={handleClick}>Mis-Bookings</option>
         <option value="timingIssues" onClick={handleClick}>Timing Issues</option>
         <option value="anyOther" href="/user"> Any Other</option>
+
         </select>
     </div>
   )

@@ -141,7 +141,7 @@ function Trade(props) {
   const defaultColDef = useMemo(() => {
     return {
       flex: 1,
-      minWidth: 150,
+      minWidth: 100,
       filter: true,
       filterParams:{suppressAndOrCondition: true},
       resizable: true,
