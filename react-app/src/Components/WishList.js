@@ -190,9 +190,12 @@ function WishList(props) {
   return (
     <div>
       <NavbarWishlist name="User Name" />
-      <div className="ag-theme-alpine" style={{height:1000}}>
+      <div className="ag-theme-alpine" style={{height:600}}>
         <AgGridReact rowData={securities} columnDefs={securities_heading} 
-        defaultColDef={defaultColDef} />
+        defaultColDef={defaultColDef} 
+        pagination={true}
+        paginationPageSize={10}
+        paginationAutoPageSize={true}/>
       </div>
 
     {/* <div style={containerStyle}>
