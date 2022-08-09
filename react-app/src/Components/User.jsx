@@ -52,7 +52,7 @@ function User(props) {
   function addToWishlist(){
       // call post method to add "userWishlist"
       console.log('Added to Users Wishlist');
-      
+      console.log(userWishlist);
   }
 
   const [securities,setSecurities] = useState(INITIAL_SECURITIES);
