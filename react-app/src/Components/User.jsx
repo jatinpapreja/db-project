@@ -192,14 +192,14 @@ function User(props) {
                                     <input type="checkbox" onClick={()=>Wishlist(params)}></input>},
     {headerName:'ISIN',field:'isin',minWidth:120,cellRendererFramework:(params)=>
                                         <a href={"/trade/"+params.data.isin}>{params.data.isin}</a>},
-    {field:'cusip'},
+    {headerName:'CUSIP',field:'cusip'},
     {field:'issuer'},
     {headerName:"Maturity Date",field:'maturity_date',filter: 'agDateColumnFilter',filterParams: filterParams},
     {field:'coupon'},
     {field:'type'},
-    {field:'facevalue'},
+    {headerName:'Face Value',field:'facevalue'},
     {field:'status'},
-    {field:'actioner'},
+    {headerName:'Actioner ID',field:'actioner'},
     {field:'',filter:false,cellRendererFramework:(params)=>
                                   <div onClick={()=>deleteSecurity(params)}>
                                     <DeleteIcon />
