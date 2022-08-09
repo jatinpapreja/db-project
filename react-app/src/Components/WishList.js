@@ -166,7 +166,7 @@ function WishList(props) {
 
   const securities_heading = [
     {field:'Id'},
-    {field:'Tag', minWidth:130, cellRendererFramework:DropDown},
+    {field:'Tag', minWidth:130, cellRendererFramework:(params) => <DropDown content = {params.data} />},
     {field:'ISIN',cellRendererFramework:(params)=>
                                         <a href={"/trade/"+params.data.ISIN}>{params.data.ISIN}</a>},
     {field:'CUSIP'},
