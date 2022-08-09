@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./App.css"
-import { BrowserRouter, Routes, Route, useParams } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Login from './Components/Login'
 import User from './Components/User'
 import Create from "./Components/Create"
@@ -12,8 +12,7 @@ import WishList from "./Components/WishList"
 import IssueUpdate from "./Components/IssueUpdate"
 
 function App() {
-  const params = useParams();
-  const bond_id = params.id;
+  
   return (
     <BrowserRouter>
       <Routes>
@@ -21,10 +20,10 @@ function App() {
         <Route path="/user" element={<User />} />
         <Route path="/create" element={<Create />} />
         <Route path="/update" element={<Update />} />
-        <Route path="/wishlist" element={<WishList />} />
-        <Route path="/trade/:id" element={<Trade id={bond_id} />} />
-        <Route path="/tradecreate" element={<Tradecreate id={bond_id}/>} />
-        <Route path="/tradeupdate" element={<Tradeupdate id={bond_id}/>} />
+        <Route path="/wishlist/:userName" element={<WishList />} />
+        <Route path="/trade/:id" element={<Trade />} />
+        <Route path="/tradecreate" element={<Tradecreate />} />
+        <Route path="/tradeupdate" element={<Tradeupdate/>} />
         <Route path="/IssueUpdate" element={<IssueUpdate />} />
       </Routes>
     </BrowserRouter>

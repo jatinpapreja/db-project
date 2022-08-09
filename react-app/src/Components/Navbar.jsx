@@ -11,7 +11,7 @@ function NavbarSecurity(props) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/wishlist">WishList</Nav.Link>
+            <Nav.Link href={"/wishlist/"+props.userName}>WishList</Nav.Link>
             <Nav.Link href="/create">Create</Nav.Link>
             {/* <Nav.Link href="/delete">Delete</Nav.Link> */}
             <Nav.Link href="/update">Update</Nav.Link>

@@ -1,10 +1,12 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState, useEffect } from 'react';
 import {NavbarTrade} from "./Navbar";
 import { AgGridReact } from "ag-grid-react";
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import { Button } from 'react-bootstrap';
 import DeleteIcon from "./DeleteIcon";
+import { getTradesOfSecurity } from '../API/tradeApi.js';
+import {useParams} from 'react-router-dom';
 
 let filterParams = {
   suppressAndOrCondition: true,
@@ -33,6 +35,9 @@ let filterParams = {
 
 function Trade(props) {
 
+  const params = useParams();
+  const bond_id = params.id;
+
   const deleteTrade = (params)=>{
     console.log(params.data);
   }
@@ -41,98 +46,115 @@ function Trade(props) {
     console.log(params);
   }
 
-  const securities = [
-    {
-        Id: 10,
-        BookId: "abcdefg77j12",
-        CounterpartyId: "1234plbcd",
-        SecurityId: "Unknown",
-        Quantity:5,
-        Buy_Sell: "Buy",
-        TradeDate: "30/08/2022",
-        SettlementDate: "30/08/2023",
-        UserId: "AAA",
-        Price: "1000$",
-        Status: "Paid",
-      },
-      {
-        Id: 10,
-        BookId: "abcdefg77j12",
-        CounterpartyId: "1234plbcd",
-        SecurityId: "Unknown",
-        Quantity:5,
-        Buy_Sell: "Buy",
-        TradeDate: "30/08/2022",
-        SettlementDate: "30/08/2023",
-        UserId: "AAA",
-        Price: "1000$",
-        Status: "Paid",
-      },
-      {
-        Id: 10,
-        BookId: "abcdefg77j12",
-        CounterpartyId: "1234plbcd",
-        SecurityId: "Unknown",
-        Quantity:5,
-        Buy_Sell: "Buy",
-        TradeDate: "30/08/2022",
-        SettlementDate: "30/08/2023",
-        UserId: "AAA",
-        Price: "1000$",
-        Status: "Paid",
-      },
-      {
-        Id: 10,
-        BookId: "abcdefg77j12",
-        CounterpartyId: "1234plbcd",
-        SecurityId: "Unknown",
-        Quantity:5,
-        Buy_Sell: "Buy",
-        TradeDate: "30/08/2022",
-        SettlementDate: "30/08/2023",
-        UserId: "AAA",
-        Price: "1000$",
-        Status: "Paid",
-      },{
-        Id: 10,
-        BookId: "abcdefg77j12",
-        CounterpartyId: "1234plbcd",
-        SecurityId: "Unknown",
-        Quantity:5,
-        Buy_Sell: "Buy",
-        TradeDate: "30/08/2022",
-        SettlementDate: "30/08/2023",
-        UserId: "AAA",
-        Price: "1000$",
-        Status: "Paid",
-      },
-    {
-      Id: 10,
-      BookId: "abcdefg77j12",
-      CounterpartyId: "1234plbcd",
-      SecurityId: "Unknown",
-      Quantity:5,
-      Buy_Sell: "Buy",
-      TradeDate: "30/08/2022",
-      SettlementDate: "30/08/2023",
-      UserId: "AAA",
-      Price: "1000$",
-      Status: "Paid",
-    }
-  ];
+  // const securities = [
+  //   {
+  //       Id: 10,
+  //       BookId: "abcdefg77j12",
+  //       CounterpartyId: "1234plbcd",
+  //       SecurityId: "Unknown",
+  //       Quantity:5,
+  //       Buy_Sell: "Buy",
+  //       TradeDate: "30/08/2022",
+  //       SettlementDate: "30/08/2023",
+  //       UserId: "AAA",
+  //       Price: "1000$",
+  //       Status: "Paid",
+  //     },
+  //     {
+  //       Id: 10,
+  //       BookId: "abcdefg77j12",
+  //       CounterpartyId: "1234plbcd",
+  //       SecurityId: "Unknown",
+  //       Quantity:5,
+  //       Buy_Sell: "Buy",
+  //       TradeDate: "30/08/2022",
+  //       SettlementDate: "30/08/2023",
+  //       UserId: "AAA",
+  //       Price: "1000$",
+  //       Status: "Paid",
+  //     },
+  //     {
+  //       Id: 10,
+  //       BookId: "abcdefg77j12",
+  //       CounterpartyId: "1234plbcd",
+  //       SecurityId: "Unknown",
+  //       Quantity:5,
+  //       Buy_Sell: "Buy",
+  //       TradeDate: "30/08/2022",
+  //       SettlementDate: "30/08/2023",
+  //       UserId: "AAA",
+  //       Price: "1000$",
+  //       Status: "Paid",
+  //     },
+  //     {
+  //       Id: 10,
+  //       BookId: "abcdefg77j12",
+  //       CounterpartyId: "1234plbcd",
+  //       SecurityId: "Unknown",
+  //       Quantity:5,
+  //       Buy_Sell: "Buy",
+  //       TradeDate: "30/08/2022",
+  //       SettlementDate: "30/08/2023",
+  //       UserId: "AAA",
+  //       Price: "1000$",
+  //       Status: "Paid",
+  //     },{
+  //       Id: 10,
+  //       BookId: "abcdefg77j12",
+  //       CounterpartyId: "1234plbcd",
+  //       SecurityId: "Unknown",
+  //       Quantity:5,
+  //       Buy_Sell: "Buy",
+  //       TradeDate: "30/08/2022",
+  //       SettlementDate: "30/08/2023",
+  //       UserId: "AAA",
+  //       Price: "1000$",
+  //       Status: "Paid",
+  //     },
+  //   {
+  //     Id: 10,
+  //     BookId: "abcdefg77j12",
+  //     CounterpartyId: "1234plbcd",
+  //     SecurityId: "Unknown",
+  //     Quantity:5,
+  //     Buy_Sell: "Buy",
+  //     TradeDate: "30/08/2022",
+  //     SettlementDate: "30/08/2023",
+  //     UserId: "AAA",
+  //     Price: "1000$",
+  //     Status: "Paid",
+  //   }
+  // ];
+
+
+  const [trades,setTrades] = useState([]);
+  useEffect( () => {
+    let componentMounted = true ;
+  getTradesOfSecurity(bond_id)
+        .then (trades => {
+            if(componentMounted)
+                setTrades(trades)
+        })
+
+        return () => componentMounted = false
+
+    }, [])
+
+    console.log(trades);
+
 
   const trade_heading = [
-    {field:'Id'},
-    {field:'BookId'},
-    {field:'CounterpartyId'},
-    {field:'SecurityId'},
-    {field:'Quantity',filter: 'agNumberColumnFilter'},
-    {field:'Status'},
-    {field:'Price',filter: 'agNumberColumnFilter'},
-    {field:'Buy_Sell'},
-    {field:'TradeDate',filter:'agDateColumnFilter',filterParams: filterParams},
-    {field:'SettlementDate',filter:'agDateColumnFilter',filterParams: filterParams},
-    {field:'UserId'},
+    {field:'id'},
+    // {field:'BookId'},
+    // {field:'CounterpartyId'},
+    // {field:'SecurityId'},
+    {field:'quantity',filter: 'agNumberColumnFilter'},
+    {field:'status'},
+    {field:'price',filter: 'agNumberColumnFilter'},
+    {headerName:'Buy_Sell',field:'buy_sell'},
+    {headerName:'Trade Date',field:'trade_date',filter:'agDateColumnFilter',filterParams: filterParams},
+    {headerName:'Settlement Date',field:'settlement_date',filter:'agDateColumnFilter',filterParams: filterParams},
+    // {field:'UserId'},
     {field:'',filter:false,cellRendererFramework:(params)=>
                                                       <div onClick={()=>deleteTrade(params)}>
                                                         <DeleteIcon />
@@ -161,7 +183,7 @@ function Trade(props) {
     <div>
       <NavbarTrade name="User Name" />
       <div className="ag-theme-alpine" style={{height:600}}>
-        <AgGridReact rowData={securities} columnDefs={trade_heading} 
+        <AgGridReact rowData={trades} columnDefs={trade_heading} 
         defaultColDef={defaultColDef} 
         pagination={true}
         paginationPageSize={10}
