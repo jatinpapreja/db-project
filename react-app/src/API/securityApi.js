@@ -18,6 +18,7 @@ export async function getSecurities() {
 
 export async function deleteSecurity(securityId) {
     const response = await server.delete(`api/v1/Security/${securityId}`);
+    location.reload();
    //  return response.data;
 }
 
