@@ -32,14 +32,14 @@ class IssueUpdate extends React.Component {
         <div className='container mt-9'>
         <div>
               <h2>Enter Issue</h2>
-              <h5>Enter Details :</h5>
+              <h5 className="detailsIU">Enter Details :</h5>
             </div>
         <div className="baI">  
-            <label className="labe">
+            <label className="labeIU">
                 Action  
                 <input className="inpu" type="text" value={this.state.value} name="Action" onChange={this.handleChange} />
             </label>
-            <label className="labe">
+            <label className="labeIU">
                 Description  
                 <input className="desc-input" type="text" value={this.state.value} name="Description" onChange={this.handleChange} />
             </label>

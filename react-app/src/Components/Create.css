@@ -1,7 +1,7 @@
 .Create {
     text-align: center;
     background-repeat: no-repeat; 
-    background-size: contain;
+    background-size: cover;
     background-position: center center;
     height: 70vh;  
   
@@ -60,7 +60,7 @@
   flex-direction: row;
   justify-content: flex-end;
   text-align: right;
-  width: 500px;
+  width: 327px;
   line-height: 26px;
   margin-bottom: 10px;
     }
@@ -85,7 +85,7 @@
     display: block;
     padding: 5px;
     margin: 30px auto;
-    margin-left: 2cm;
+    margin-left: 5cm;
     }
     
     .messages{

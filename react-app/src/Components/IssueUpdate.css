@@ -9,14 +9,17 @@
 
     .baI{
       background-color: rgb(212, 211, 211);
-      padding: 0px 60px;
+      padding: 0px 30px;
       border-radius: 10px;
       height: 50vh;
       max-width: fit-content;
-      margin-left: 7cm;       
+      margin-left: 10cm;       
     
     }
-    h2{
+    .detailsIU{
+      margin-left:  5cm;
+    }
+    .h2{
       text-align: center;
       color: black;
       padding-top: 0.5cm;
@@ -35,7 +38,7 @@
         vertical-align: middle;
       } */
 
-    .labe{
+    .labeIU{
     /* display: block;
     font-size: medium;
     color: rgb(24, 6, 6);
