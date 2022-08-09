@@ -178,7 +178,7 @@ function WishList(props) {
     {field:'Status'},
     {field:'',filter:false,cellRendererFramework:(params)=>
                                    <button className='btn btn-success'
-                                   onClick={()=>assignTag(params)}>Delete</button>},
+                                   onClick={()=>assignTag(params)}>Assign</button>},
     
   ];
 
