@@ -1,5 +1,7 @@
 
 import React, { useState } from "react"
+import  server  from "../API/server.js"
+
 
 export default function (props) {
   let [authMode, setAuthMode] = useState("signin")
@@ -7,7 +9,12 @@ export default function (props) {
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin")
   }
+  async function createUser(e) {
+    e.preventDefault()
+    const response = await server.post('/api/v1/register');
 
+    console.log(response.data);
+}
   if (authMode === "signin") {
     return (
       <div className="Auth-form-container">
@@ -64,7 +71,7 @@ export default function (props) {
           <div className="form-group mt-3">
             <label>Full Name</label>
             <input
-              type="email"
+              type="text"
               className="form-control mt-1"
               placeholder="e.g Jane Doe"
             />
@@ -94,7 +101,7 @@ export default function (props) {
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary" onSubmit={createUser}>
               Submit
             </button>
           </div>
