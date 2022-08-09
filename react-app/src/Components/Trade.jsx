@@ -181,7 +181,7 @@ function Trade(props) {
 
   return (
     <div>
-      <NavbarTrade name="User Name" />
+      <NavbarTrade name="User Name" id={bond_id}/>
       <div className="ag-theme-alpine" style={{height:600}}>
         <AgGridReact rowData={trades} columnDefs={trade_heading} 
         defaultColDef={defaultColDef} 

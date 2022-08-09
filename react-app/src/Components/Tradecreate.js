@@ -2,10 +2,19 @@ import React from "react";
 import { Button } from 'react-bootstrap';
 import { Navigate } from 'react-router-dom';
 import './Tradecreate.css';
+// import { withRouter } from "react-router";
+
+
 
 class Tradecreate extends React.Component {
+
+//   componentDidMount() {
+//     const bond_id = this.props.match.params.id;
+//     this.fetchData(bond_id);
+// }
     constructor(props) {
         super(props);
+        
         this.state = {
           id: '',
           bookid: '',
@@ -18,7 +27,7 @@ class Tradecreate extends React.Component {
           tradedate: '',
           settlementdate: '',
           userid:'',
-          change: false
+          // change: false
         };
       }
       handleChange = (event) => {
@@ -27,12 +36,15 @@ class Tradecreate extends React.Component {
     
       handleSubmit = (event) => {
         this.setState({ change: true })
+        console.log(this.state);
         alert('Details submitted');
       }
       handleCancel = (event) => {
         this.setState({ change: true })
       }
-    
+      
+      
+
       render() {
         return (
     
@@ -92,7 +104,7 @@ class Tradecreate extends React.Component {
             <Button variant="success" className="bt1 m-3 p-2" id="butnT" 
             onClick={this.handleCancel}
             >Cancel</Button>{' '}
-            {this.state.change && <Navigate to={"/trade/"+this.props.id} replace={true} />}
+            {this.state.change && <Navigate to={"/trade/:id"} replace={true} />}
             </div>
       </div>
     </section>
