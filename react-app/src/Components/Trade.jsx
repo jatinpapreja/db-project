@@ -4,6 +4,7 @@ import { AgGridReact } from "ag-grid-react";
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import { Button } from 'react-bootstrap';
+import DeleteIcon from "./DeleteIcon";
 
 let filterParams = {
   suppressAndOrCondition: true,
@@ -133,8 +134,10 @@ function Trade(props) {
     {field:'SettlementDate',filter:'agDateColumnFilter',filterParams: filterParams},
     {field:'UserId'},
     {field:'',filter:false,cellRendererFramework:(params)=>
-                                   <button className='btn btn-danger'
-                                   onClick={()=>deleteTrade(params)}>Delete</button>},
+                                                      <div onClick={()=>deleteTrade(params)}>
+                                                        <DeleteIcon />
+                                                      </div>
+                                                      },
   ];
 
 
