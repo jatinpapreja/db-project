@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const server = axios.create({
-    baseURL:'http://localhost:8080',
+    baseURL:'https://db-grads-65pw-group-28.nw.r.appspot.com',
 })
 
 export default server;

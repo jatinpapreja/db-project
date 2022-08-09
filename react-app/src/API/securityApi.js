@@ -1,7 +1,7 @@
-import axios from 'axios'
+import server from './server';
 
 export async function getSecurities() {
-   const response =  await axios.get('http://localhost:8080/api/v1/Security');
+   const response =  await server.get('/api/v1/Security');
    return response.data;
 }
 
@@ -16,10 +16,10 @@ export async function getSecurities() {
 //     return response.data;
 // }
 
-// export async function deleteSecurity(data) {
-//     const response = await axios.delete(url,data);
-//     return response.data;
-// }
+export async function deleteSecurity(securityId) {
+    const response = await server.delete(`api/v1/Security/${securityId}`);
+   //  return response.data;
+}
 
 // export async function updateSecurity(data) {
 //     const response = await axios.put(url,data);
