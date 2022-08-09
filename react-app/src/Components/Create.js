@@ -24,8 +24,9 @@ class Create extends React.Component {
   }
 
   handleSubmit = (event) => {
-    this.setState({ change: true })
-    alert('Details submitted');
+    this.setState({ change: true });
+    console.log(this.state);
+    alert(this.state);
   }
   handleCancel = (event) => {
     this.setState({ change: true })

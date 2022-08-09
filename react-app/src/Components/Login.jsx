@@ -1,20 +1,37 @@
 
 import React, { useState } from "react"
 import  server  from "../API/server.js"
-
+import { useFormik } from 'formik';
 
 export default function (props) {
   let [authMode, setAuthMode] = useState("signin")
 
+  const signup_data = useFormik({
+    initialValues: {
+      name: '',
+      password: '',
+      email:'',
+      role:'',
+    },
+    onSubmit: values => {
+      alert(JSON.stringify(values, null, 2));
+    //  const response = await server.post('/api/v1/register',{
+        //       firstname:
+        //     });
+    },
+  });
+
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin")
   }
-  async function createUser(e) {
-    e.preventDefault()
-    const response = await server.post('/api/v1/register');
+//   async function createUser(e) {
+//     e.preventDefault()
+//     const response = await server.post('/api/v1/register',{
+//       firstname:
+//     });
 
-    console.log(response.data);
-}
+//     console.log(response.data);
+// }
   if (authMode === "signin") {
     return (
       <div className="Auth-form-container">
@@ -72,6 +89,8 @@ export default function (props) {
             <label>Full Name</label>
             <input
               type="text"
+              onChange={signup_data.handleChange}
+              value={signup_data.values.name}
               className="form-control mt-1"
               placeholder="e.g Jane Doe"
             />
@@ -80,6 +99,8 @@ export default function (props) {
             <label>Role</label>
             <input
               type="text"
+              onChange={signup_data.handleChange}
+              value={signup_data.values.role}
               className="form-control mt-1"
               placeholder="Role"
             />
@@ -88,6 +109,8 @@ export default function (props) {
             <label>Email address</label>
             <input
               type="email"
+              onChange={signup_data.handleChange}
+              value={signup_data.values.email}
               className="form-control mt-1"
               placeholder="Email Address"
             />
@@ -96,12 +119,14 @@ export default function (props) {
             <label>Password</label>
             <input
               type="password"
+              onChange={signup_data.handleChange}
+              value={signup_data.values.password}
               className="form-control mt-1"
               placeholder="Password"
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary" onSubmit={createUser}>
+            <button type="submit" className="btn btn-primary" onSubmit={signup_data.handleSubmit}>
               Submit
             </button>
           </div>
