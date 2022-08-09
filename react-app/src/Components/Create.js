@@ -36,7 +36,7 @@ class Create extends React.Component {
 
       <div>
       <section className="Reg">
-        <div className='container mt-9'>
+        {/* <div className='container mt-9'> */}
         <div>
               <h2>Create Security</h2>
               <h5>Enter Details :</h5>
@@ -84,9 +84,9 @@ class Create extends React.Component {
         >Cancel</Button>{' '}
         {this.state.change && <Navigate to="/user" replace={true} />}
         </div>
-  </div>
+ {/* </section> </div> */}
 </section>
-</div>
+ </div>
     );
   }
 }

@@ -1,19 +1,19 @@
 .Create {
     text-align: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-repeat: no-repeat; 
+    background-size: contain;
     background-position: center center;
-    height: 100vh;  
+    height: 70vh;  
   
     }
 
     .ba{
       background-color: rgb(212, 211, 211);
-      padding: 0px 60px;
+      padding: 5px 30px;
       border-radius: 10px;
-      height: 70vh;
+      height: 76vh;
       max-width: fit-content;
-      margin-left: 7cm;       
+      margin-left: 15cm;       
     
     }
     h2{

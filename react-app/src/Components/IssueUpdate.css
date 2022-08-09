@@ -1,4 +1,4 @@
-.Create {
+.IssueUpdate {
     text-align: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -7,7 +7,7 @@
   
     }
 
-    .ba{
+    .baI{
       background-color: rgb(212, 211, 211);
       padding: 0px 60px;
       border-radius: 10px;
