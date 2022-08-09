@@ -5,7 +5,7 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import { Button } from 'react-bootstrap';
 import {DropDown}  from './DropDown';
-
+import {AiFillDelete} from "react-icons/fa";
  
 let filterParams = {
   suppressAndOrCondition: true,
@@ -178,7 +178,7 @@ function WishList(props) {
     {field:'Status'},
     {field:'',filter:false,cellRendererFramework:(params)=>
                                    <button className='btn btn-success'
-                                   onClick={()=>assignTag(params)}>Assign</button>},
+                                   onClick={()=>assignTag(params)}>Delete</button>},
     
   ];
 

@@ -1,0 +1,8 @@
+.navbar{
+    position: relative;
+}
+.logout{
+    position: absolute;
+    right: 0;
+    font-weight: bold;
+}

@@ -4,6 +4,7 @@ import { AgGridReact } from "ag-grid-react";
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import { Button } from 'react-bootstrap';
+import DeleteIcon from './DeleteIcon';
 
 let filterParams = {
   suppressAndOrCondition: true,
@@ -181,8 +182,10 @@ function User(props) {
     {field:'Status'},
     {field:'Action'},
     {field:'',filter:false,cellRendererFramework:(params)=>
-                                   <button className='btn btn-danger'
-                                   onClick={()=>deleteSecurity(params)}>Delete</button>},
+                                  <div onClick={()=>deleteSecurity(params)}>
+                                    <DeleteIcon />
+                                  </div>
+                                   },
     
   ];
 
@@ -225,7 +228,7 @@ function User(props) {
         ></AgGridReact>
       </div>
     </div> */}
-  
+    
     </div>
   );
 }

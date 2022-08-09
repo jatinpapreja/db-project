@@ -2,11 +2,11 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
+import "./navbar.css"
 function NavbarSecurity(props) {
   return (
     <Navbar bg="light" expand="lg">
-      <Container>
+      <Container className="navbar">
         <Navbar.Brand href='/user'>{props.name}</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -15,7 +15,7 @@ function NavbarSecurity(props) {
             <Nav.Link href="/create">Create</Nav.Link>
             {/* <Nav.Link href="/delete">Delete</Nav.Link> */}
             <Nav.Link href="/update">Update</Nav.Link>
-            <Nav.Link href="/">LogOut</Nav.Link>
+            <Nav.Link className="logout" href="/">LogOut</Nav.Link>
 
 
             {/* <NavDropdown title="Securities" id="basic-nav-dropdown">
@@ -36,7 +36,7 @@ function NavbarSecurity(props) {
 function NavbarTrade(props) {
   return (
     <Navbar bg="light" expand="lg">
-      <Container>
+      <Container className="navbar">
         <Navbar.Brand href='/user'>{props.name}</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -45,7 +45,7 @@ function NavbarTrade(props) {
             <Nav.Link href="/Tradecreate">Create</Nav.Link>
             {/* <Nav.Link href="/delete">Delete</Nav.Link> */}
             <Nav.Link href="/Tradeupdate">Update</Nav.Link>
-            <Nav.Link href="/">LogOut</Nav.Link>
+            <Nav.Link className="logout" href="/">LogOut</Nav.Link>
 
 
             {/* <NavDropdown title="Securities" id="basic-nav-dropdown">
@@ -64,7 +64,7 @@ function NavbarTrade(props) {
 function NavbarWishlist(props) {
   return (
     <Navbar bg="light" expand="lg">
-      <Container>
+      <Container className="navbar">
         <Navbar.Brand href='/user'>{props.name}</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -73,7 +73,7 @@ function NavbarWishlist(props) {
             {/* <Nav.Link href="/Tradecreate">Create</Nav.Link> */}
             {/* <Nav.Link href="/delete">Delete</Nav.Link> */}
             {/* <Nav.Link href="/Tradeupdate">Update</Nav.Link> */}
-            <Nav.Link href="/">LogOut</Nav.Link>
+            <Nav.Link className="logout" href="/">LogOut</Nav.Link>
 
 
             {/* <NavDropdown title="Securities" id="basic-nav-dropdown">
