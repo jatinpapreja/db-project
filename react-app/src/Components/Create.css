@@ -16,12 +16,27 @@
       margin-left: 15cm;       
     
     }
+    .baU{
+      background-color: rgb(212, 211, 211);
+      padding: 5px 30px;
+      border-radius: 10px;
+      height: 76vh;
+      max-width: fit-content;
+      margin-left: 10cm;    
+    }
+    .detailU{
+      margin-left: 5cm;
+    }
     h2{
       text-align: center;
       color: black;
       padding-top: 0.5cm;
     }
     
+
+    .Details{
+      margin-left: 10cm;
+    }
     /* .parent {
         border: 1px solid black;
         margin: 1rem;
@@ -45,11 +60,13 @@
   flex-direction: row;
   justify-content: flex-end;
   text-align: right;
-  width: 300px;
+  width: 500px;
   line-height: 26px;
   margin-bottom: 10px;
     }
-    
+    .labe mat{
+      width: 1000px;
+    }
     .inpu{
     /* font-size: medium;
     padding: 5px;
@@ -67,7 +84,8 @@
     font-size: large;
     display: block;
     padding: 5px;
-    margin: 10px auto;
+    margin: 30px auto;
+    margin-left: 2cm;
     }
     
     .messages{

@@ -34,7 +34,7 @@ class IssueUpdate extends React.Component {
               <h2>Enter Issue</h2>
               <h5>Enter Details :</h5>
             </div>
-        <div className="ba">  
+        <div className="baI">  
             <label className="labe">
                 Action  
                 <input className="inpu" type="text" value={this.state.value} name="Action" onChange={this.handleChange} />
@@ -45,9 +45,9 @@ class IssueUpdate extends React.Component {
             </label>
                 
                 
-            <Button variant="success" className="bt1 m-3 p-2" id="butn" onClick={this.handleSubmit}>Submit</Button>{' '}
+            <Button variant="success" className="bt1 m-3 p-2" id="butnIU" onClick={this.handleSubmit}>Submit</Button>{' '}
         {this.state.change && <Navigate to="/wishlist" replace={true} />}
-        <Button variant="success" className="bt1 m-3 p-2" id="butn" 
+        <Button variant="success" className="bt1 m-3 p-2" id="butnIU" 
         onClick={this.handleCancel}
         >Cancel</Button>{' '}
         {this.state.change && <Navigate to="/wishlist" replace={true} />}

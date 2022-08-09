@@ -9,11 +9,20 @@
 
     .baT{
       background-color: rgb(212, 211, 211);
-      padding: 0px 60px;
+      padding: 5px 60px;
       border-radius: 10px;
-      height: 74vh;
+      height: 80vh;
       max-width: fit-content;
-      margin-left: 7cm;       
+      margin-left: 9cm;       
+    
+    }
+    .baC{
+      background-color: rgb(212, 211, 211);
+      padding: 5px 60px;
+      border-radius: 10px;
+      height: 80vh;
+      max-width: fit-content;
+      margin-left: 9cm;       
     
     }
     h2{
@@ -21,7 +30,9 @@
       color: black;
       padding-top: 0.5cm;
     }
-    
+    .detailT{
+      margin-left: 5cm;
+    }
     /* .parent {
         border: 1px solid black;
         margin: 1rem;
@@ -35,7 +46,7 @@
         vertical-align: middle;
       } */
 
-    .labe{
+    .labeT{
     /* display: block;
     font-size: medium;
     color: rgb(24, 6, 6);
@@ -50,7 +61,7 @@
   margin-bottom: 4px;
     }
     
-    .inpu{
+    .inpuT{
     /* font-size: medium;
     padding: 5px;
     margin: 2px; */
@@ -60,7 +71,7 @@
     margin-left: 10px;
     
     }
-    .butn{
+    .butnT{
     color: white;
     background-color: rgb(94, 213, 243);
     border-radius: 5px;

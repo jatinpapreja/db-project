@@ -41,55 +41,55 @@ class Tradeupdate extends React.Component {
         <div className='container mt-9'>
         <div>
               <h2>Update Trade</h2>
-              <h5>Enter Details :</h5>
+              <h5 className="detailT">Enter Details :</h5>
             </div>
-        <div className="ba">  
-            <label className="labe">
+        <div className="baT">  
+            <label className="labeT">
                 Id:
                 <input className="inpu" type="text" value={this.state.value} name="id" onChange={this.handleChange} />
             </label>
-            <label className="labe">
+            <label className="labeT">
                 Book Id:
                 <input className="inpu" type="text" value={this.state.value} name="bookid" onChange={this.handleChange} />
-            </label><label className="labe">
+            </label><label className="labeT">
                 Counterparty_Id:
                 <input className="inpu" type="text" value={this.state.value} name="counterpartyid" onChange={this.handleChange} />
             </label>
-            <label className="labe">
+            <label className="labeT">
                 Security_Id:
-                <input className="inpu" type="text" value={this.state.value} name="securityid" onChange={this.handleChange} />
+                <input className="inpuT" type="text" value={this.state.value} name="securityid" onChange={this.handleChange} />
             </label>
-            <label className="labe">
+            <label className="labeT">
               Quantity:
-                <input className="inpu" type="text" value={this.state.value} name="quantity" onChange={this.handleChange} />
+                <input className="inpuT" type="text" value={this.state.value} name="quantity" onChange={this.handleChange} />
             </label>
-            <label className="labe">
+            <label className="labeT">
               Status:
-                <input className="inpu" type="text" value={this.state.value} name="status" onChange={this.handleChange} />
+                <input className="inpuT" type="text" value={this.state.value} name="status" onChange={this.handleChange} />
             </label>
-            <label className="labe">
+            <label className="labeT">
             Price:
-                <input className="inpu" type="text" value={this.state.value} name="price" onChange={this.handleChange} />
+                <input className="inpuT" type="text" value={this.state.value} name="price" onChange={this.handleChange} />
             </label>
-            <label className="labe">
+            <label className="labeT">
             Buy_Sell:
-                <input className="inpu" type="text" value={this.state.value} name="buy_sell" onChange={this.handleChange} />
+                <input className="inpuT" type="text" value={this.state.value} name="buy_sell" onChange={this.handleChange} />
             </label>
-            <label className="labe">
+            <label className="labeT">
             Trade_Date:
-                <input className="inpu" type="text" value={this.state.value} name="tradedate" onChange={this.handleChange} />
+                <input className="inpuT" type="text" value={this.state.value} name="tradedate" onChange={this.handleChange} />
             </label>
-            <label className="labe">
+            <label className="labeT">
             Settlement_Date:
-                <input className="inpu" type="text" value={this.state.value} name="settlementdate" onChange={this.handleChange} />
+                <input className="inpuT" type="text" value={this.state.value} name="settlementdate" onChange={this.handleChange} />
             </label>
-            <label className="labe">
+            <label className="labeT">
             User_Id:
-                <input className="inpu" type="text" value={this.state.value} name="userid" onChange={this.handleChange} />
+                <input className="inpuT" type="text" value={this.state.value} name="userid" onChange={this.handleChange} />
             </label>
             <Button variant="success" className="bt1 m-3 p-2" id="butn" onClick={this.handleSubmit}>Submit</Button>{' '}
         {this.state.change && <Navigate to="/trade/:id" replace={true} />}
-        <Button variant="success" className="bt1 m-3 p-2" id="butn" 
+        <Button variant="success" className="bt1 m-3 p-2" id="butnT" 
         onClick={this.handleCancel}
         >Cancel</Button>{' '}
         {this.state.change && <Navigate to="/trade/:id" replace={true} />}

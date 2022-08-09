@@ -39,7 +39,7 @@ class Create extends React.Component {
         {/* <div className='container mt-9'> */}
         <div>
               <h2>Create Security</h2>
-              <h5>Enter Details :</h5>
+              <h5 className="Details">Enter Details :</h5>
             </div>
         <div className="ba">  
             <label className="labe">
@@ -59,7 +59,7 @@ class Create extends React.Component {
             </label>
             <label className="labe">
              Maturity Date :
-                <input className="inpu" type="text" value={this.state.value} name="maturitydate" onChange={this.handleChange} />
+                <input className="inpu mat" type="text" value={this.state.value} name="maturitydate" onChange={this.handleChange} />
             </label>
             <label className="labe">
               Coupon  :

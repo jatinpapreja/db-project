@@ -39,9 +39,9 @@ class Update extends React.Component {
         <div className='container mt-9'>
         <div>
               <h2>Update Security</h2>
-              <h5>Enter Details :</h5>
+              <h5 className="detailU">Enter Details :</h5>
             </div>
-        <div className="ba">  
+        <div className="baU">  
             <label className="labe">
                 Id  :
                 <input className="inpu" type="text" value={this.state.value} name="id" onChange={this.handleChange} />
