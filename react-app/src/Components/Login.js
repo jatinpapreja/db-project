@@ -2,6 +2,7 @@
 import React, { useState } from "react"
 import  server  from "../API/server.js"
 import { useFormik } from 'formik';
+import { Navigate } from 'react-router-dom';
 import { FaCalendarTimes } from "react-icons/fa";
 
 export default function (props) {
@@ -30,22 +31,29 @@ export default function (props) {
     onSubmit: async values => {
       console.log("Here!")
       alert(JSON.stringify(values, null, 2));
-    //   try{
-    //   const response = await server.post(`/api/v1/login?username=${values.username}&password=${values.password}`,{
-
-    //   });
-    // }
-    // catch(err){
-    //   console.log(err)
-    // }
+    
       // console.log(response);    
     },
   });
 
-  const login = (event) => {
-    console.log('Here!@');
+  const login = async (event) => {
     event.preventDefault();
-    alert('here!');
+    // alert('here!');
+    try{
+      const response = await server.post(`/api/v1/login?email=${signin_data.values.username}&password=${signin_data.values.password}`,{
+
+      });
+      localStorage.setItem("userID",response.data);
+      if(response.data != -1){
+        <Navigate to="/user" />
+      }
+      else{
+        alert('Wrong Credentials!');
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
   }
 
   const changeAuthMode = () => {
@@ -63,14 +71,9 @@ export default function (props) {
     return (
       <div className="Auth-form-container">
         <form className="Auth-form" method="post" action="">
-          <div className="Auth-form-content">
-            <h3 className="Auth-form-title">Sign In</h3>
-            <div className="text-center">
-              Not registered yet?{" "}
-              <a className="text-primary" onClick={changeAuthMode}>
-                Sign Up
-              </a>
-            </div>
+          <div className="Auth-form-content mt-4">
+            <h3 className="Auth-form-title mb-4">Sign In</h3>
+            
             <div className="form-group mt-3">
               <label>Email address</label>
               <input
@@ -93,14 +96,20 @@ export default function (props) {
                 placeholder="Enter password"
               />
             </div>
-            <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary" onSubmit={login}>
-                Submit!!!
+            <div className="d-grid gap-2 mt-5 mb-3">
+              <button className="btn btn-primary btn-block" onClick={login}>
+                Login
               </button>
             </div>
             <p className="text-center mt-2">
               <a href="#">Forgot Password?</a>
             </p>
+            <div className="text-center mb-3 text-muted">
+              Not registered yet?{" "}
+              <a className="text-primary" onClick={changeAuthMode}>
+                Sign Up
+              </a>
+            </div>
           </div>
         </form>
       </div>
