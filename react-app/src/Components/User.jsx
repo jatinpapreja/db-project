@@ -41,6 +41,7 @@ function User(props) {
 
   // fetch details of user...
   const userWishlist = [];
+  const userName = localStorage.getItem("username");
 
   // const deleteSecurity = (params)=>{
   //   console.log(params.data);
@@ -114,7 +115,7 @@ function User(props) {
   if (securities.length === 0) {
     return (
       <div>
-        <NavbarSecurity name="User Name" />
+        <NavbarSecurity name={userName} />
         <div class="d-flex justify-content-center align-items-center mt-4">
           <Spinner animation="border" />
           <p class="mt-3 ml-3">Loading Securities</p>
@@ -128,7 +129,7 @@ function User(props) {
 
   return (
     <div>
-      <NavbarSecurity name="User Name" />
+      <NavbarSecurity name={userName} />
       <Button style={{marginLeft:10}} onClick={addToWishlist}>Add to WishList</Button>
       <div className="ag-theme-alpine" style={{height:600}}>
         <AgGridReact rowData={securities} columnDefs={securities_heading} 
