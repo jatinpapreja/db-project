@@ -44,9 +44,11 @@ export default function (props) {
       const response = await server.post(`/api/v1/login?email=${signin_data.values.username}&password=${signin_data.values.password}`,{
 
       });
-      localStorage.setItem("userID",response.data);
+      
       if(response.data > 0){
         setRedirect(true);
+        localStorage.setItem("userID",response.data);
+        localStorage.setItem("username",signin_data.values.username);
         console.log('Login!!!')
         console.log("State:",redirect);
        
@@ -78,12 +80,12 @@ export default function (props) {
         name:signup_data.values.name
       });
 
-      if(response.data != -1){
-        setRedirect(true);
-      }
-      else{
-        alert('Wrong Credentials!');
-      }
+      // if(response.data != -1){
+      //   setRedirect(true);
+      // }
+      // else{
+      //   alert('Enter Vaild fields');
+      // }
       console.log(redirect);
     }
     catch(err){
