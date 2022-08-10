@@ -2,6 +2,7 @@
 import React, { useState } from "react"
 import  server  from "../API/server.js"
 import { useFormik } from 'formik';
+import { FaCalendarTimes } from "react-icons/fa";
 
 export default function (props) {
   let [authMode, setAuthMode] = useState("signin")
@@ -15,11 +16,37 @@ export default function (props) {
     },
     onSubmit: values => {
       alert(JSON.stringify(values, null, 2));
-    //  const response = await server.post('/api/v1/register',{
-        //       firstname:
-        //     });
+      // const response = await server.post('/api/v1/register',{
+      //         firstname:
+      //       });
     },
   });
+
+  const signin_data = useFormik({
+    initialValues: {
+      username: '',
+      password: '',
+    },
+    onSubmit: async values => {
+      console.log("Here!")
+      alert(JSON.stringify(values, null, 2));
+    //   try{
+    //   const response = await server.post(`/api/v1/login?username=${values.username}&password=${values.password}`,{
+
+    //   });
+    // }
+    // catch(err){
+    //   console.log(err)
+    // }
+      // console.log(response);    
+    },
+  });
+
+  const login = (event) => {
+    console.log('Here!@');
+    event.preventDefault();
+    alert('here!');
+  }
 
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin")
@@ -35,7 +62,7 @@ export default function (props) {
   if (authMode === "signin") {
     return (
       <div className="Auth-form-container">
-        <form className="Auth-form">
+        <form className="Auth-form" method="post" action="">
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Sign In</h3>
             <div className="text-center">
@@ -49,6 +76,9 @@ export default function (props) {
               <input
                 type="email"
                 className="form-control mt-1"
+                name="username"
+                onChange={signin_data.handleChange}
+                value={signin_data.values.username}
                 placeholder="Enter email"
               />
             </div>
@@ -57,12 +87,15 @@ export default function (props) {
               <input
                 type="password"
                 className="form-control mt-1"
+                name="password"
+                onChange={signin_data.handleChange}
+                value={signin_data.values.password}
                 placeholder="Enter password"
               />
             </div>
             <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary">
-                Submit
+              <button type="submit" className="btn btn-primary" onSubmit={login}>
+                Submit!!!
               </button>
             </div>
             <p className="text-center mt-2">
@@ -126,7 +159,7 @@ export default function (props) {
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary" onSubmit={signup_data.handleSubmit}>
+            <button type="submit" className="btn btn-primary" onSubmit={login}>
               Submit
             </button>
           </div>

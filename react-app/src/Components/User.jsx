@@ -5,6 +5,7 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import { Button } from 'react-bootstrap';
 import DeleteIcon from './DeleteIcon';
+import server from '../API/server';
 import {getSecurities,deleteSecurity} from '../API/securityApi.js'
 
 const INITIAL_SECURITIES = []
@@ -49,8 +50,12 @@ function User(props) {
     userWishlist.push(params.data);
   }
 
-  function addToWishlist(){
+  async function addToWishlist(){
       // call post method to add "userWishlist"
+      for(let security of userWishlist){
+        server.post(`api/v1/setActionerForSecurity/${security.id}/actioner/2`,{});
+        console.log(security.id);
+      }
       console.log('Added to Users Wishlist');
       
   }
