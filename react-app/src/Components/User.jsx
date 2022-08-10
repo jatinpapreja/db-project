@@ -7,6 +7,7 @@ import { Button } from 'react-bootstrap';
 import DeleteIcon from './DeleteIcon';
 import server from '../API/server';
 import {getSecurities,deleteSecurity} from '../API/securityApi.js'
+import Spinner from 'react-bootstrap/Spinner';
 
 const INITIAL_SECURITIES = []
 
@@ -114,8 +115,12 @@ function User(props) {
     return (
       <div>
         <NavbarSecurity name="User Name" />
-         <p> No Securities data yet!..</p>
-
+        <div class="d-flex justify-content-center align-items-center mt-4">
+          <Spinner animation="border" />
+          <p class="mt-3 ml-3">Loading Securities</p>
+        </div>
+        
+        
       </div>
       
     );

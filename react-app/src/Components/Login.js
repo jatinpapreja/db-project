@@ -72,7 +72,7 @@ export default function (props) {
       <div className="Auth-form-container">
         <form className="Auth-form" method="post" action="">
           <div className="Auth-form-content mt-4">
-            <h3 className="Auth-form-title mb-4">Sign In</h3>
+            <p className="Auth-form-title mb-4">Sign In</p>
             
             <div className="form-group mt-3">
               <label>Email address</label>

@@ -7,6 +7,7 @@ import { Button } from 'react-bootstrap';
 import DeleteIcon from "./DeleteIcon";
 import { getTradesOfSecurity } from '../API/tradeApi.js';
 import {useParams} from 'react-router-dom';
+import Spinner from 'react-bootstrap/Spinner';
 
 let filterParams = {
   suppressAndOrCondition: true,
@@ -179,16 +180,34 @@ function Trade(props) {
   //     .then((data) => setRowData(data));
   // }, []);
 
+
+  const render = () => {
+    if(trades.length == 0){
+      return(
+        <div class="d-flex justify-content-center align-items-center mt-4">
+            <Spinner animation="border" />
+            <p class="mt-3 ml-3">Loading Trades</p>
+        </div>
+      )
+    }
+    else{
+      return (
+        <div className="ag-theme-alpine" style={{height:600}}>
+          <AgGridReact rowData={trades} columnDefs={trade_heading} 
+          defaultColDef={defaultColDef} 
+          pagination={true}
+          paginationPageSize={10}
+          paginationAutoPageSize={true}/>
+        </div>
+      )
+      
+    }
+  }
+
   return (
     <div>
       <NavbarTrade name="User Name" id={bond_id}/>
-      <div className="ag-theme-alpine" style={{height:600}}>
-        <AgGridReact rowData={trades} columnDefs={trade_heading} 
-        defaultColDef={defaultColDef} 
-        pagination={true}
-        paginationPageSize={10}
-        paginationAutoPageSize={true}/>
-      </div>
+      {render()}
 
     {/* <div style={containerStyle}>
       <div style={gridStyle} className="ag-theme-alpine">
