@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from 'react-bootstrap';
 import { Navigate } from 'react-router-dom';
 import './Create.css';
+import {createSecurity} from '../API/securityApi';
 
 class Create extends React.Component {
   constructor(props) {
@@ -11,12 +12,12 @@ class Create extends React.Component {
       isin: '',
       cusip: '',
       issuer: '',
-      maturitydate: '',
+      maturity_date: '',
       coupon: '',
       type: '',
-      face_value: '',
+      facevalue: '',
       status: '',
-      change: false
+      // change: false
     };
   }
   handleChange = (event) => {
@@ -25,8 +26,13 @@ class Create extends React.Component {
 
   handleSubmit = (event) => {
     this.setState({ change: true });
+    this.state['actioner']=-1;
+    this.state['issueTag']="NA";
     console.log(this.state);
-    alert(this.state);
+    createSecurity(this.state);
+    // alert(this.state);
+
+
   }
   handleCancel = (event) => {
     this.setState({ change: true })
@@ -60,7 +66,7 @@ class Create extends React.Component {
             </label>
             <label className="labe">
              Maturity Date :
-                <input className="inpu mat" type="text" value={this.state.value} name="maturitydate" onChange={this.handleChange} />
+                <input className="inpu mat" type="text" value={this.state.value} name="maturity_date" onChange={this.handleChange} />
             </label>
             <label className="labe">
               Coupon  :
@@ -72,7 +78,7 @@ class Create extends React.Component {
             </label>
             <label className="labe">
             Face Value  :
-                <input className="inpu" type="text" value={this.state.value} name="face_value" onChange={this.handleChange} />
+                <input className="inpu" type="text" value={this.state.value} name="facevalue" onChange={this.handleChange} />
             </label>
             <label className="labe">
               Status  :

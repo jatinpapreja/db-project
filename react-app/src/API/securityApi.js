@@ -11,10 +11,10 @@ export async function getSecurities() {
 // }
 
 
-// export async function createSecurity(data) {
-//     const response = await axios.post(url,data);
-//     return response.data;
-// }
+export async function createSecurity(data) {
+    const response = await server.post('/api/v1/Security',data);
+    console.log(response.data);
+}
 
 export async function deleteSecurity(securityId) {
     const response = await server.delete(`api/v1/Security/${securityId}`);
@@ -22,7 +22,7 @@ export async function deleteSecurity(securityId) {
    //  return response.data;
 }
 
-// export async function updateSecurity(data) {
-//     const response = await axios.put(url,data);
-//     return response.data;
-// }
+export async function updateSecurity(data) {
+    const response = await server.put(`/api/v1/Security/${data.id}`,data);
+    console.log(response.data);
+}

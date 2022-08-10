@@ -42,9 +42,9 @@ function NavbarTrade(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/wishlist">WishList</Nav.Link>
-            <Nav.Link href="/Tradecreate">Create</Nav.Link>
+            <Nav.Link href={"/Tradecreate/"+props.id}>Create</Nav.Link>
             {/* <Nav.Link href="/delete">Delete</Nav.Link> */}
-            <Nav.Link href="/Tradeupdate">Update</Nav.Link>
+            <Nav.Link href={"/Tradeupdate/"+props.id}>Update</Nav.Link>
             <Nav.Link className="logout" href="/">LogOut</Nav.Link>
 
 

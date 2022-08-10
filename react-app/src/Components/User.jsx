@@ -57,7 +57,7 @@ function User(props) {
         console.log(security.id);
       }
       console.log('Added to Users Wishlist');
-      
+      console.log(userWishlist);
   }
 
   const [securities,setSecurities] = useState(INITIAL_SECURITIES);

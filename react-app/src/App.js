@@ -22,8 +22,8 @@ function App() {
         <Route path="/update" element={<Update />} />
         <Route path="/wishlist/:userName" element={<WishList />} />
         <Route path="/trade/:id" element={<Trade />} />
-        <Route path="/tradecreate" element={<Tradecreate />} />
-        <Route path="/tradeupdate" element={<Tradeupdate/>} />
+        <Route path="/tradecreate/:id" element={<Tradecreate />} />
+        <Route path="/tradeupdate/:id" element={<Tradeupdate/>} />
         <Route path="/IssueUpdate" element={<IssueUpdate />} />
       </Routes>
     </BrowserRouter>
