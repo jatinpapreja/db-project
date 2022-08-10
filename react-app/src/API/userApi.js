@@ -15,10 +15,10 @@ export async function getUserDetails() {
    return response.data;
 }
 
-export async function getUserWishlist() {
-    const response = await axios.get();
-    return response.data;
-}
+// export async function getUserWishlist() {
+//     const response = await axios.get();
+//     return response.data;
+// }
 
 export async function updateUserWishlist() {
     const response = await axios.put();

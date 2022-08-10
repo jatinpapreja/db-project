@@ -42,6 +42,7 @@ function User(props) {
   // fetch details of user...
   const userWishlist = [];
   const userName = localStorage.getItem("username");
+  const userId = localStorage.getItem('userID');
 
   // const deleteSecurity = (params)=>{
   //   console.log(params.data);
@@ -115,7 +116,7 @@ function User(props) {
   if (securities.length === 0) {
     return (
       <div>
-        <NavbarSecurity name={userName} />
+        <NavbarSecurity name={userName} id={userId}/>
         <div class="d-flex justify-content-center align-items-center mt-4">
           <Spinner animation="border" />
           <p class="mt-3 ml-3">Loading Securities</p>
