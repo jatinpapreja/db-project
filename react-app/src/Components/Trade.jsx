@@ -39,6 +39,9 @@ function Trade(props) {
   const params = useParams();
   const bond_id = params.id;
 
+  const userName = localStorage.getItem('username');
+  const userId = localStorage.getItem('userID');
+
   const deleteTrade = (params)=>{
     console.log(params.data);
   }
@@ -206,7 +209,7 @@ function Trade(props) {
 
   return (
     <div>
-      <NavbarTrade name="User Name" id={bond_id}/>
+      <NavbarTrade name={userName} id={bond_id}/>
       {render()}
 
     {/* <div style={containerStyle}>

@@ -130,7 +130,7 @@ function User(props) {
 
   return (
     <div>
-      <NavbarSecurity name={userName} />
+      <NavbarSecurity name={userName} id={userId}/>
       <Button style={{marginLeft:10}} onClick={addToWishlist}>Add to WishList</Button>
       <div className="ag-theme-alpine" style={{height:600}}>
         <AgGridReact rowData={securities} columnDefs={securities_heading} 

@@ -40,12 +40,15 @@ function WishList(props) {
   const userId = localStorage.getItem('userID');
   const assignTag = (params)=>{
     console.log(params.data);
+    // const security_id = params.data.id;
+    // const issue =
+    // const response = await server.put(`setIssuerForSecurity/{securityId}/actioner/{issue}`)
     // const val = document.getElementById("tag").value;
     // console.log(val);
   }
 
   async function getUserWishlist(userId) {
-    const response = await server.get(`api/v1/getWishlist?ID=1`);
+    const response = await server.get(`api/v1/getWishlist?ID=${userId}`);
     return response.data;
 }
 
@@ -188,10 +191,10 @@ function WishList(props) {
   // ];
 
   const securities_heading = [
-    {field:'id'},
+    {field:'id',cellRendererFramework:(params)=>
+    <a href={"/trade/"+params.data.id}>{params.data.id}</a>},
     {field:'tag', minWidth:130, cellRendererFramework:(params) => <DropDown content = {params.data} />},
-    {field:'isin',cellRendererFramework:(params)=>
-                                        <a href={"/trade/"+params.data.ISIN}>{params.data.ISIN}</a>},
+    {field:'isin'},
     {field:'cusip'},
     {field:'issuer'},
     {field:'maturity_date',filter: 'agDateColumnFilter',filterParams: filterParams},
