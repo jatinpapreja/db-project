@@ -7,7 +7,8 @@ import { FaCalendarTimes } from "react-icons/fa";
 
 export default function (props) {
   let [authMode, setAuthMode] = useState("signin")
-
+  let [redirect,setRedirect] = useState(false);
+  const RedirectRender = redirect ? <Navigate to="/user" /> : null;
   const signup_data = useFormik({
     initialValues: {
       name: '',
@@ -44,12 +45,46 @@ export default function (props) {
 
       });
       localStorage.setItem("userID",response.data);
-      if(response.data != -1){
-        <Navigate to="/user" />
+      if(response.data > 0){
+        setRedirect(true);
+        console.log('Login!!!')
+        console.log("State:",redirect);
+       
       }
       else{
         alert('Wrong Credentials!');
       }
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+
+  const signup = async (event) => {
+    event.preventDefault();
+    try{
+      console.log({
+        id:1,
+        role:signup_data.values.role,
+        password:signup_data.values.password,
+        email:signup_data.values.email,
+        name:signup_data.values.name
+      })
+      const response = await server.post(`/api/v1/register`,{
+        id:1,
+        role:signup_data.values.role,
+        password:signup_data.values.password,
+        email:signin_data.values.email,
+        name:signup_data.values.name
+      });
+
+      if(response.data != -1){
+        setRedirect(true);
+      }
+      else{
+        alert('Wrong Credentials!');
+      }
+      console.log(redirect);
     }
     catch(err){
       console.log(err)
@@ -73,7 +108,7 @@ export default function (props) {
         <form className="Auth-form" method="post" action="">
           <div className="Auth-form-content mt-4">
             <p className="Auth-form-title mb-4">Sign In</p>
-            
+            {RedirectRender}
             <div className="form-group mt-3">
               <label>Email address</label>
               <input
@@ -134,7 +169,8 @@ export default function (props) {
               onChange={signup_data.handleChange}
               value={signup_data.values.name}
               className="form-control mt-1"
-              placeholder="e.g Jane Doe"
+              name="name"
+              placeholder="Full Name"
             />
           </div>
           <div className="form-group mt-3">
@@ -144,6 +180,7 @@ export default function (props) {
               onChange={signup_data.handleChange}
               value={signup_data.values.role}
               className="form-control mt-1"
+              name="role"
               placeholder="Role"
             />
           </div>
@@ -154,6 +191,7 @@ export default function (props) {
               onChange={signup_data.handleChange}
               value={signup_data.values.email}
               className="form-control mt-1"
+              name="email"
               placeholder="Email Address"
             />
           </div>
@@ -161,6 +199,7 @@ export default function (props) {
             <label>Password</label>
             <input
               type="password"
+              name="password"
               onChange={signup_data.handleChange}
               value={signup_data.values.password}
               className="form-control mt-1"
@@ -168,7 +207,7 @@ export default function (props) {
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary" onSubmit={login}>
+            <button className="btn btn-primary" onClick={signup}>
               Submit
             </button>
           </div>

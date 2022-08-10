@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from 'react-bootstrap';
 import { Navigate } from 'react-router-dom';
+import server from "../API/server";
 import './Tradecreate.css';
 // import { withRouter } from "react-router";
 
@@ -34,9 +35,19 @@ class Tradecreate extends React.Component {
         this.setState({ [event.target.name]: event.target.value });
       }
     
-      handleSubmit = (event) => {
-        this.setState({ change: true })
+      handleSubmit = async (event) => {
+        // this.setState({ change: true })
         console.log(this.state);
+        const submit_obj = {
+          id:this.state.id,
+          quantity:this.state.quantity,
+          status:this.state.status,
+          price:this.state.price,
+          buy_sell:this.state.buy_sell,
+          trade_date:this.state.tradedate,
+          settlement_date:this.state.settlementdate
+        }
+        await server.post('/api/v1/Security',submit_obj);
         alert('Details submitted');
       }
       handleCancel = (event) => {
